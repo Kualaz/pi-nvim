@@ -8,7 +8,6 @@ M.config = {
 	latest_socket = "/tmp/pi-nvim-latest.sock",
 	request_timeout_ms = 5000,
 	events = true,
-	keymaps = true,
 }
 
 local event_client = nil
@@ -894,21 +893,6 @@ function M.setup(opts)
 	vim.api.nvim_create_user_command("PiSessions", function()
 		M.list_sessions()
 	end, { desc = "Pick a Pi session" })
-
-	if M.config.keymaps then
-		vim.keymap.set("n", "<leader>aa", function()
-			M.ask({ initial_text = "@this " })
-		end, { desc = "Ask Pi (@this = current line)" })
-		vim.keymap.set("x", "<leader>aa", function()
-			M.ask({ selection = M.capture_selection(), initial_text = "@this " })
-		end, { desc = "Ask Pi (@this = selection)" })
-		vim.keymap.set("n", "<leader>ab", function()
-			M.send_all()
-		end, { desc = "Ask Pi with buffer" })
-		vim.keymap.set("n", "<leader>ap", function()
-			M.list_sessions()
-		end, { desc = "Pick Pi session" })
-	end
 end
 
 
