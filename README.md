@@ -1,17 +1,17 @@
 # pi-nvim
 
-Local Neovim client for the Pi Neovim bridge package.
+Neovim client for the Pi Neovim bridge package.
 
 This plugin connects to the Pi-side Unix socket bridge (`/tmp/pi-nvim-sockets`) and lets Neovim send prompts plus editor context to an active Pi session.
 
 ## Setup
 
-With lazy.nvim from a local checkout:
+With lazy.nvim:
 
 ```lua
 return {
+  "Kualaz/pi-nvim",
   name = "pi-nvim",
-  dir = "/Users/kuala/Documents/Projects/OpenSource/pi-nvim",
   lazy = false,
   config = function()
     require("pi").setup()
@@ -19,11 +19,7 @@ return {
 }
 ```
 
-The Pi-side extension package lives separately in:
-
-```text
-/Users/kuala/Documents/Projects/OpenSource/pi-toolkit/pi-nvim
-```
+The Pi-side extension package lives separately in [`pi-toolkit/pi-nvim`](https://github.com/Kualaz/pi-toolkit/tree/main/pi-nvim).
 
 ## Commands
 
